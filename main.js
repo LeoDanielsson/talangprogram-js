@@ -9,8 +9,8 @@ const renderBreedImage = async breed => {
   const response = await fetch(
     `https://dog.ceo/api/breed/${breed}/images/random`
   );
-  const data = await response.json();
-  result.innerHTML = `<img src="${data.message}">`;
+  const { message } = await response.json();
+  result.innerHTML = `<img src="${message}">`;
 };
 
 const renderBreeds = filter => {
@@ -38,8 +38,8 @@ const onInput = event => {
 
 const renderRandomDog = async () => {
   const response = await fetch('https://dog.ceo/api/breeds/image/random');
-  const data = await response.json();
-  result.innerHTML = `<img src="${data.message}">`;
+  const { message } = await response.json();
+  result.innerHTML = `<img src="${message}">`;
 };
 
 button.addEventListener('click', renderRandomDog);
